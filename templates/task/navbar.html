@@ -1,0 +1,37 @@
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top mt-3 py-3">
+
+    <div class="container-fluid">
+
+        <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarTogglerDemo01">
+            <!-- SIDE BAR MENU -->
+            <button class="btn btn-outline-dark float-end " type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasWithBothOptions"
+                    aria-controls="offcanvasWithBothOptions">
+                <i class="bi bi-window-sidebar"></i>
+            </button>
+
+            <!-- SEARCH FIELD -->
+            <form method="POST" action="{% url 'search' %}" class="d-flex w-75" role="search">
+                {% csrf_token %}
+                <div class="input-group">
+                    <!-- search input -->
+                    <label for="in" class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></label>
+                    <input class="form-control me-2" type="search" placeholder="Topshiriqlarni qidirish"
+                           aria-label="Search" name="search" id="in" value="{{ search }}" required>
+                    <!-- search button -->
+                    <button class="btn btn-outline-success" type="submit">Qidirish</button>
+                </div>
+
+            </form>
+
+            <!-- CREATE BUTTON -->
+            <button type="button" class="btn btn-outline-primary " data-bs-toggle="modal"
+                    data-bs-target="#exampleModalCreate">
+                <i class="bi bi-plus-square"></i> Yaratish
+            </button>
+        </div>
+
+    </div>
+
+</nav>

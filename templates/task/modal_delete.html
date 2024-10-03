@@ -1,0 +1,37 @@
+<!-- MODAL DELETE -->
+<div class="modal fade" id="exampleModalDelete" tabindex="-1" aria-labelledby="exampleModalDeleteLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- DELETE TITLE -->
+            <div class="modal-header">
+                <h5 class="modal-title text-danger" id="exampleModalDeleteLabel">Topshiriqni o'chirish</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!-- DELETE BODY -->
+            <div class="modal-body">
+                Topshiriqni rostdan ham o'chirishni xohlaysizmi?
+                <form id="deleteTaskForm" method="post" action="{% url 'delete-task' %}">
+                    {% csrf_token %}
+
+                    <!-- task ID -->
+                    <input type="hidden" name="task_id" id="deleteTaskId">
+                    <br>
+
+                    <!-- BUTTONS -->
+                    <div class="modal-footer">
+                        <!-- close -->
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yopish</button>
+                        <!-- delete button -->
+                        <button type="submit" class="btn btn-danger float-end">O'chirish</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>

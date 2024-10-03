@@ -1,0 +1,71 @@
+<!-- SIDE BAR -->
+{% load static %}
+<div class="offcanvas offcanvas-start custom-offcanvas p-2" data-bs-scroll="true" tabindex="-1"
+     id="offcanvasWithBothOptions"
+     aria-labelledby="offcanvasWithBothOptionsLabel">
+
+    <!-- LOGO TEXT -->
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Settings</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <!-- OUT MENU -->
+
+    <!--Profile-->
+    <div class="text-start align-middle p-2 bg-body-secondary rounded">
+        <img src="{% static 'task/img/abek.jpeg' %}" class="rounded-circle w-25" alt="...">
+        <ul class="list-group list-group-flush fw-normal mt-3">
+            <li class="list-group-item bg-transparent">
+                <i class="bi bi-info-square"></i> Ma'lumotlarim
+            </li>
+            <li class="list-group-item bg-transparent text-danger">
+                <a href="#" class="text-danger"><i class="bi bi-box-arrow-left"></i> Chiqish</a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+<!-- INNER MENU -->
+<div class="offcanvas-body fw-semibold float-end mt-4">
+    <ul class="list-group">
+
+        <!-- TODO -->
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a href="{% url 'home-view' %}"
+               class="w-100 link-offset-2 link-underline link-underline-opacity-0 link-warning">
+                <span><i class="bi bi-house-fill"></i> Bajarilmaganlar</span>
+                <span class="badge text-bg-warning rounded-pill float-end bg-warning">{{ todo_count }}</span>
+            </a>
+        </li>
+
+        <!-- DONE -->
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a href="{% url 'task-done-view' %}"
+               class="w-100 link-offset-2 link-underline link-underline-opacity-0 link-success">
+                <span><i class="bi bi-check-square"></i> Bajarilganlar</span>
+                <span class="badge text-bg-primary rounded-pill float-end bg-success">{{ done_count }}</span>
+            </a>
+        </li>
+
+        <!-- DELETE -->
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a href="{% url 'task-delete-view' %}"
+               class="w-100 link-offset-2 link-underline link-underline-opacity-0 link-danger">
+                <span><i class="bi bi-trash3"></i> O'chirilganlar</span>
+                <span class="badge text-bg-primary rounded-pill float-end bg-danger">{{ deleted_count }}</span>
+            </a>
+        </li>
+
+        <!-- DONE & DELETE -->
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a href="{% url 'done-delete-task-view' %}"
+               class="w-100 link-offset-2 link-underline link-underline-opacity-0 link-dark">
+                <span style="margin-right: 60px;"><i class="bi bi-trash2-fill"></i> Bajarilgan va O'chirilgan</span>
+                <span class="badge text-bg-primary rounded-pill float-end bg-dark">{{ done_delete_count }}</span>
+            </a>
+        </li>
+
+    </ul>
+</div>
